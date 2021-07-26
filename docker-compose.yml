@@ -1,0 +1,17 @@
+services:
+    rabbitmq:
+        container_name: rabbitmq
+        hostname: rabbitmq
+        image: rabbitmq:3-management
+        #environment:
+        build:
+            context: .
+            dockerfile: rabbitPika.Dockerfile
+        ports:
+        # Ingestion port
+        - 5672:5672
+        # Management port
+        - 15672:15672
+        # volumes:
+        # # - d:/temp/volumes/rabbitmq-data:/etc/rabbitmq
+        # - rabbitmq-data:/etc/rabbitmq  #named volume
